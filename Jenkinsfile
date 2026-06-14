@@ -7,7 +7,10 @@ pipeline {
             }
         },
         stage ('two'){
-            echo "stage 2 executed"
+            steps {
+                echo 'stage 2 executed'
+            }
+            
         }
     }
 }

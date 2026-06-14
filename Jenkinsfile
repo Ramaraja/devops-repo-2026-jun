@@ -5,6 +5,9 @@ pipeline {
             steps {
                 echo 'Hello, Jenkins!'
             }
+        },
+        stage ('two'){
+            echo "stage 2 executed"
         }
     }
 }

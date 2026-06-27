@@ -7,9 +7,11 @@ todos = [
     {"id": 2, "task": "Build CI/CD pipeline"}
 ]
 
+
 @app.route("/todos", methods=["GET"])
 def get_todos():
     return jsonify(todos), 200
+
 
 @app.route("/todos", methods=["POST"])
 def add_todo():
@@ -21,11 +23,13 @@ def add_todo():
     todos.append(todo)
     return jsonify(todo), 201
 
+
 @app.route("/todos/<int:todo_id>", methods=["DELETE"])
 def delete_todo(todo_id):
     global todos
     todos = [t for t in todos if t["id"] != todo_id]
     return jsonify({"message": f"Todo {todo_id} deleted"}), 200
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
